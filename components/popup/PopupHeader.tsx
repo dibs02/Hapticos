@@ -1,5 +1,4 @@
-import { Logo } from "~components/icons/Logo"
-
+import { Logo } from "../../components/icons/Logo"
 import settingsIcon from "../icons/images/settings.png"
 
 export function PopupHeader() {
