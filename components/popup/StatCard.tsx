@@ -1,6 +1,6 @@
 type StatCardProps = {
   label: string
-  value: string
+  value: number
 }
 
 export function StatCard({ label, value }: StatCardProps) {

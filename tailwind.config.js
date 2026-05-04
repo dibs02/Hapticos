@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        notch: ['"Stack Sans Notch"', "sans-serif"]
+        notch: ['"Stack Sans Notch"', "sans-serif"],
+        carter: ['"Carter One"', "sans-serif"]
       }
     }
   },
