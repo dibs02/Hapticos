@@ -72,7 +72,7 @@ function IndexPopup() {
                 <ResetIcon />
               </button>
             </div>
-            <div className="mt-3">
+            <div className="mt-1">
               <StatCard label="In total" value={count} />
             </div>
           </div>
