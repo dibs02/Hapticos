@@ -5,6 +5,7 @@ export const config = {
 declare const chrome: any
 
 const CLICK_COUNT_KEY = "hapticosClickCount"
+const storageArea = chrome?.storage?.local
 
 const bgAudio = new Audio(chrome.runtime.getURL("./sounds/bg.wav"))
 const buttonAudio = new Audio(chrome.runtime.getURL("./sounds/button.wav"))
@@ -16,19 +17,44 @@ for (const audio of [bgAudio, buttonAudio, linkAudio]) {
 }
 
 const incrementClickCount = () => {
-  chrome.storage.local.get([CLICK_COUNT_KEY], (result) => {
-    const currentCount =
-      typeof result[CLICK_COUNT_KEY] === "number" ? result[CLICK_COUNT_KEY] : 0
+  if (!storageArea) {
+    return
+  }
 
-    chrome.storage.local.set({
-      [CLICK_COUNT_KEY]: currentCount + 1
+  try {
+    storageArea.get([CLICK_COUNT_KEY], (result) => {
+      try {
+        const currentCount =
+          typeof result[CLICK_COUNT_KEY] === "number"
+            ? result[CLICK_COUNT_KEY]
+            : 0
+
+        storageArea.set({
+          [CLICK_COUNT_KEY]: currentCount + 1
+        })
+      } catch (error) {
+        if (!isExtensionContextInvalidated(error)) {
+          console.warn("Hapticos could not update the click count.", error)
+        }
+      }
     })
-  })
+  } catch (error) {
+    if (!isExtensionContextInvalidated(error)) {
+      console.warn("Hapticos could not access extension storage.", error)
+    }
+  }
 }
 
 const playAudio = async (audio: HTMLAudioElement) => {
   audio.currentTime = 0
   await audio.play()
+}
+
+const isExtensionContextInvalidated = (error: unknown) => {
+  return (
+    error instanceof Error &&
+    error.message.includes("Extension context invalidated")
+  )
 }
 
 const getClickAudio = (target: EventTarget | null) => {
@@ -55,10 +81,11 @@ document.addEventListener("click", async (event) => {
   try {
     const audio = getClickAudio(event.target)
     await playAudio(audio)
-    incrementClickCount()
   } catch (error) {
     console.warn("Hapticos could not play the click sound.", error)
   }
+
+  incrementClickCount()
 })
 
 console.log("Hapticos content script loaded")
