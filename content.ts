@@ -1,5 +1,5 @@
 export const config = {
-  matches: ["<all_urls>"]
+  matches: ["http://*/*", "https://*/*"]
 }
 
 declare const chrome: any

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hapticos Privacy Policy</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f4ee;
+        --panel: #fffdf8;
+        --text: #1c1917;
+        --muted: #57534e;
+        --accent: #d97706;
+        --border: #e7e5e4;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background:
+          radial-gradient(circle at top, #fde68a 0, #f7f4ee 28rem),
+          var(--bg);
+        color: var(--text);
+      }
+
+      main {
+        max-width: 760px;
+        margin: 48px auto;
+        padding: 0 20px;
+      }
+
+      article {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 32px 24px;
+        box-shadow: 0 18px 40px rgba(28, 25, 23, 0.08);
+      }
+
+      h1,
+      h2 {
+        line-height: 1.15;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+      }
+
+      h2 {
+        margin: 28px 0 10px;
+        font-size: 1.2rem;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--accent);
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .updated {
+        margin-top: 18px;
+        font-size: 0.95rem;
+      }
+
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <p class="eyebrow">Hapticos</p>
+        <h1>Privacy Policy</h1>
+        <p>
+          Hapticos is a browser extension that plays local feedback sounds when
+          you click supported elements on web pages and shows a local interaction
+          count in the extension popup.
+        </p>
+
+        <h2>What data Hapticos uses</h2>
+        <p>
+          Hapticos processes click interactions on supported <code>http</code>
+          and <code>https</code> pages in order to trigger local feedback
+          sounds.
+        </p>
+        <p>
+          Hapticos stores a local interaction count using the Chrome storage API
+          so the popup can display how many supported interactions were
+          triggered.
+        </p>
+
+        <h2>What Hapticos does not collect</h2>
+        <ul>
+          <li>Hapticos does not collect personally identifiable information.</li>
+          <li>Hapticos does not collect passwords, payment data, or health data.</li>
+          <li>Hapticos does not collect webpage text, form content, or messages.</li>
+          <li>Hapticos does not read or sync browser history.</li>
+        </ul>
+
+        <h2>How data is stored</h2>
+        <p>
+          The interaction count is stored locally in the browser using
+          <code>chrome.storage.local</code>. Hapticos does not send this data to
+          external servers.
+        </p>
+
+        <h2>Data sharing</h2>
+        <p>
+          Hapticos does not sell, transfer, or share user data with third
+          parties.
+        </p>
+
+        <h2>Remote code</h2>
+        <p>
+          Hapticos does not use remote code. Its scripts and assets are bundled
+          with the extension package.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          If you have questions about this policy, contact the developer through
+          the project repository:
+          <a href="https://github.com/dibs02/Hapticos">
+            github.com/dibs02/Hapticos
+          </a>
+        </p>
+
+        <p class="updated">Last updated: May 15, 2026</p>
+      </article>
+    </main>
+  </body>
+</html>
