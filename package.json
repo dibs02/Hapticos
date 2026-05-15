@@ -1,9 +1,9 @@
 {
   "name": "hapticos",
-  "displayName": "Hapticos",
+  "displayName": "Hapticos - haptics for the web",
   "version": "0.0.1",
-  "description": "A browser extension for haptic feedback",
-  "author": "Dibya",
+  "description": "A browser extension that adds haptic-style feedback to clicks and interactions",
+  "author": "Dibyajyoti Ganguly",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
